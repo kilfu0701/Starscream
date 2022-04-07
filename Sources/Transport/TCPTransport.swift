@@ -57,7 +57,7 @@ public class TCPTransport: Transport {
             return
         }
         
-        NSLog ("url \(url.absoluteURL)")
+        NSLog ("parts.absoluteURL \(parts.absoluteURL)")
         NSLog ("parts.host \(parts.host)")
         NSLog ("parts.port \(parts.port)")
         
@@ -87,7 +87,7 @@ public class TCPTransport: Transport {
         
         
         //let conn = NWConnection(host: NWEndpoint.Host.name(parts.host, nil), port: NWEndpoint.Port(rawValue: UInt16(parts.port))!, using: parameters)
-        let conn = NWConnection(host: NWEndpoint.Host(url.absoluteURL), port: NWEndpoint.Port(rawValue: UInt16(parts.port))!, using: parameters)
+        let conn = NWConnection(host: NWEndpoint.Host(parts.absoluteURL), port: NWEndpoint.Port(rawValue: UInt16(parts.port))!, using: parameters)
         
         connection = conn
         start()
