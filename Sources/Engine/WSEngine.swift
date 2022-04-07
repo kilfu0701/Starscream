@@ -68,8 +68,7 @@ FrameCollectorDelegate, HTTPHandlerDelegate {
             return
         }
         
-        NSLog("connect -> %@ , %@", url, request.url ?? "")
-        
+        NSLog("connect -> ", url)
         
         transport.connect(url: url, timeout: request.timeoutInterval, certificatePinning: certPinner)
     }
