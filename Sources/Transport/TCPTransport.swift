@@ -50,10 +50,15 @@ public class TCPTransport: Transport {
     }
     
     public func connect(url: URL, timeout: Double = 10, certificatePinning: CertificatePinning? = nil) {
+        NSLog("TCPTransport connect...")
+        
         guard let parts = url.getParts() else {
             delegate?.connectionChanged(state: .failed(TCPTransportError.invalidRequest))
             return
         }
+        
+        NSLog (@"%@, parts)
+        
         self.isTLS = parts.isTLS
         let options = NWProtocolTCP.Options()
         options.connectionTimeout = Int(timeout.rounded(.up))
