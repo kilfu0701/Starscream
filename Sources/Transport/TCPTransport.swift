@@ -57,7 +57,8 @@ public class TCPTransport: Transport {
             return
         }
         
-        NSLog ("aaa")
+        NSLog ("parts.host \(parts.host)")
+        NSLog ("parts.port \(parts.port)")
         
         self.isTLS = parts.isTLS
         let options = NWProtocolTCP.Options()
