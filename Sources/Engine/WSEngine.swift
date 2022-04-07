@@ -64,11 +64,11 @@ FrameCollectorDelegate, HTTPHandlerDelegate {
         httpHandler.register(delegate: self)
         frameHandler.delegate = self
         guard let url = request.url else {
-            NSLog("pass.", url)
+            NSLog("pass.")
             return
         }
         
-        NSLog("connect -> ", url)
+        NSLog("connect -> ", url, request.url)
         
         
         transport.connect(url: url, timeout: request.timeoutInterval, certificatePinning: certPinner)
