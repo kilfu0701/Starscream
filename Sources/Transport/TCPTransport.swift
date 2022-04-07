@@ -57,6 +57,7 @@ public class TCPTransport: Transport {
             return
         }
         
+        NSLog ("url \(url.absoluteURL)")
         NSLog ("parts.host \(parts.host)")
         NSLog ("parts.port \(parts.port)")
         
