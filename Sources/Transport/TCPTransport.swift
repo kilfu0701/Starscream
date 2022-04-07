@@ -110,6 +110,7 @@ public class TCPTransport: Transport {
     
     private func start() {
         guard let conn = connection else {
+            NSLog("err ?")
             return
         }
         conn.stateUpdateHandler = { [weak self] (newState) in
