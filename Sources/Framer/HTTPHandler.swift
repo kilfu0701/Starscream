@@ -80,6 +80,9 @@ public struct HTTPWSHeader {
         }
         let hostValue = req.allHTTPHeaderFields?[HTTPWSHeader.hostName] ?? "\(parts.host):\(parts.port)"
         req.setValue(hostValue, forHTTPHeaderField: HTTPWSHeader.hostName)
+        
+        NSLog("createUpgrade...")
+        
         return req
     }
     
