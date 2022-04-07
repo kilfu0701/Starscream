@@ -49,6 +49,8 @@ FrameCollectorDelegate, HTTPHandlerDelegate {
     }
     
     public func start(request: URLRequest) {
+        NSLog("WSEngine start...")
+        
         mutex.wait()
         let isConnected = canSend
         mutex.signal()
