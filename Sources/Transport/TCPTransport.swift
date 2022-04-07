@@ -87,7 +87,7 @@ public class TCPTransport: Transport {
         
         
         //let conn = NWConnection(host: NWEndpoint.Host.name(parts.host, nil), port: NWEndpoint.Port(rawValue: UInt16(parts.port))!, using: parameters)
-        let conn = NWConnection(host: url.absoluteURL, port: NWEndpoint.Port(rawValue: UInt16(parts.port))!, using: parameters)
+        let conn = NWConnection(host: NWEndpoint.Host.name(url.absoluteURL, nil), port: NWEndpoint.Port(rawValue: UInt16(parts.port))!, using: parameters)
         
         connection = conn
         start()
