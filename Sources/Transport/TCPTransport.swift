@@ -117,16 +117,22 @@ public class TCPTransport: Transport {
             NSLog("conn.stateUpdateHandler ...")
             switch newState {
             case .ready:
+                NSLog("ready ...")
                 self?.delegate?.connectionChanged(state: .connected)
             case .waiting:
+                NSLog("waiting ...")
                 self?.delegate?.connectionChanged(state: .waiting)
             case .cancelled:
+                NSLog("cancelled ...")
                 self?.delegate?.connectionChanged(state: .cancelled)
             case .failed(let error):
+                NSLog("failed ...")
                 self?.delegate?.connectionChanged(state: .failed(error))
             case .setup, .preparing:
+                NSLog(".setup, .preparing ...")
                 break
             @unknown default:
+                NSLog("unknown ...")
                 break
             }
         }
