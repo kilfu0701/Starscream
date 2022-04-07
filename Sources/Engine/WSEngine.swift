@@ -68,9 +68,11 @@ FrameCollectorDelegate, HTTPHandlerDelegate {
             return
         }
         
-        NSLog("connect -> ", url ?? "")
+        NSLog("connect -> ")
         
         transport.connect(url: url, timeout: request.timeoutInterval, certificatePinning: certPinner)
+        
+        NSLog("connect -> ")
     }
     
     public func stop(closeCode: UInt16 = CloseCode.normal.rawValue) {
