@@ -114,6 +114,7 @@ public class TCPTransport: Transport {
             return
         }
         conn.stateUpdateHandler = { [weak self] (newState) in
+            NSLog("conn.stateUpdateHandler ...")
             switch newState {
             case .ready:
                 self?.delegate?.connectionChanged(state: .connected)
@@ -140,12 +141,16 @@ public class TCPTransport: Transport {
         
         conn.start(queue: queue)
         isRunning = true
+        
+        NSLog("ok")
+        
         readLoop()
     }
     
     //readLoop keeps reading from the connection to get the latest content
     private func readLoop() {
         if !isRunning {
+            NSLog("is not isRunning...")
             return
         }
         connection?.receive(minimumIncompleteLength: 2, maximumLength: 4096, completion: {[weak self] (data, context, isComplete, error) in
